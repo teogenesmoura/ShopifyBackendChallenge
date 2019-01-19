@@ -114,4 +114,14 @@ class CartsController < ApplicationController
       end 
     end 
   end
+
+  # GET /productsInCart
+  def productsInCart 
+    if not params[:cartId]
+      render json: '{ "message": "Please inform the id of the cart"}'
+    else 
+      render json: Cart.find(params[:cartId]).products 
+    end 
+  end 
+
 end
