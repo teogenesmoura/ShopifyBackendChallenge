@@ -79,6 +79,8 @@
     
     <li ><a href="#method-i-deleteProductFromCart">#deleteProductFromCart</a>
     
+    <li ><a href="#method-i-destroy">#destroy</a>
+    
     <li ><a href="#method-i-getCartById">#getCartById</a>
     
     <li ><a href="#method-i-index">#index</a>
@@ -389,6 +391,65 @@ Cart.products status, or error message if something</p>
     <span class="ruby-keyword">end</span> 
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;Product not found in cart&quot; }&#39;</span> 
   <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deletes a cart from the database given it&#39;s id</p>
+
+<h4 id="method-i-destroy-label-Attributes">Attributes<span><a href="#method-i-destroy-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><strong>Params</strong> :</p>
+<ul><li>
+<p><code>id</code> -&gt; <em>Integer</em> - The id of the cart which will be
+destroyed</p>
+</li></ul>
+</li><li>
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><code>message</code> -&gt; <em>String</em> - message Returns a message
+informing wether the operation was successful</p>
+</li></ul>
+
+<p>or not</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span> 
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39; { &quot;message&quot;: &quot;Field productId is missing&quot; } &#39;</span>
+  <span class="ruby-keyword">else</span> 
+    <span class="ruby-identifier">cart</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">destroy</span> 
+      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>  <span class="ruby-string">&#39; { &quot;message&quot;: &quot;Product successfully deleted&quot;}&#39;</span>
+    <span class="ruby-keyword">else</span> 
+      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>  <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;There was a problem with your request&quot; }&#39;</span>
+    <span class="ruby-keyword">end</span> 
+  <span class="ruby-keyword">end</span> 
 <span class="ruby-keyword">end</span></pre>
           </div>
           

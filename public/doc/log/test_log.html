@@ -2442,7 +2442,2080 @@ as HTML</p>
 <p>Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.8ms)</p>
 
 <pre>[1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
-[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m</pre>
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.6ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (5.0ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 19:36:33.036826&#39;, &#39;2019-01-19
+19:36:33.036826&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+19:36:33.036826&#39;, &#39;2019-01-19 19:36:33.036826&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:36:33.053547&#39;, &#39;2019-01-19
+19:36:33.053547&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:36:33.053547&#39;, &#39;2019-01-19
+19:36:33.053547&#39;)[0m</p>
+
+<pre>[1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.7ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 19:36:33.086043&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:33.086043&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_delete_a_product</p>
+<hr>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:36:33 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;0&quot;}
+[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:33.326051&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:33.326051&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.8ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started DELETE “/product” for 127.0.0.1 at 2019-01-19 17:36:33 -0200
+Processing by <a
+href="../ProductsController.html#method-i-destroy">ProductsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;980190963&quot;}
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190963], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct::HABTM_Carts Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;carts_products&quot; WHERE &quot;carts_products&quot;.&quot;product_id&quot; = $1[0m  [[&quot;product_id&quot;, 980190963]]
+[1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1[0m  [[&quot;id&quot;, 980190963]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.4ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_shoud_create_a_product</p>
+<hr>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:36:33 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:36:33.364115&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:33.364115&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_a_list_of_all_products</p>
+<hr>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 17:36:33 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_add_Product_to_Cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:36:33 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:36:33.377286&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:33.377286&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:36:33 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:33.387282&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:33.387282&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:36:33 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190964&quot;, &quot;product_id&quot;=&gt;&quot;980190965&quot;}</pre>
+
+<p>Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:36:33 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:33.400519&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:33.400519&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.8ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (2.1ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:36:33 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:33.410760&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:33.410760&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:36:33 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;New Cart&quot;}
+[1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (1.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;New Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:33.420832&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:33.420832&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.9ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (1.1ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 19:36:47.992458&#39;, &#39;2019-01-19
+19:36:47.992458&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+19:36:47.992458&#39;, &#39;2019-01-19 19:36:47.992458&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:36:47.998920&#39;, &#39;2019-01-19
+19:36:47.998920&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:36:47.998920&#39;, &#39;2019-01-19
+19:36:47.998920&#39;)[0m</p>
+
+<pre>[1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_shoud_create_a_product</p>
+<hr>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:36:48 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:36:48.233149&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:48.233149&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_delete_a_product</p>
+<hr>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:36:48 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;0&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:48.241485&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:48.241485&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started DELETE “/product” for 127.0.0.1 at 2019-01-19 17:36:48 -0200
+Processing by <a
+href="../ProductsController.html#method-i-destroy">ProductsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;980190964&quot;}
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct::HABTM_Carts Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;carts_products&quot; WHERE &quot;carts_products&quot;.&quot;product_id&quot; = $1[0m  [[&quot;product_id&quot;, 980190964]]
+[1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1[0m  [[&quot;id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 2.1ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_a_list_of_all_products</p>
+<hr>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 17:36:48 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 19:36:48.282538&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:48.282538&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_add_Product_to_Cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:36:48 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:36:48.290056&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:48.290056&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:36:48 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:48.298554&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:48.298554&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:36:48 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190964&quot;, &quot;product_id&quot;=&gt;&quot;980190965&quot;}</pre>
+
+<p>Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:36:48 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:48.309930&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:48.309930&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:36:48 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;New Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;New Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:48.319400&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:48.319400&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:36:48 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:36:48.329430&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:36:48.329430&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.6ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.7ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 19:38:03.396246&#39;, &#39;2019-01-19
+19:38:03.396246&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+19:38:03.396246&#39;, &#39;2019-01-19 19:38:03.396246&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:38:03.401687&#39;, &#39;2019-01-19
+19:38:03.401687&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:38:03.401687&#39;, &#39;2019-01-19
+19:38:03.401687&#39;)[0m</p>
+
+<pre>[1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 19:38:03.435794&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.435794&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_shoud_create_a_product</p>
+<hr>
+
+<pre>[1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:38:03 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:38:03.649560&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.649560&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_delete_a_product</p>
+<hr>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:38:03 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;0&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 0], [&quot;created_at&quot;, &quot;2019-01-19 19:38:03.658073&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.658073&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started DELETE “/product” for 127.0.0.1 at 2019-01-19 17:38:03 -0200
+Processing by <a
+href="../ProductsController.html#method-i-destroy">ProductsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;980190964&quot;}
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct::HABTM_Carts Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;carts_products&quot; WHERE &quot;carts_products&quot;.&quot;product_id&quot; = $1[0m  [[&quot;product_id&quot;, 980190964]]
+[1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1[0m  [[&quot;id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 2.1ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_a_list_of_all_products</p>
+<hr>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 17:38:03 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:38:03 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:38:03.700335&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.700335&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_add_product_to_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:38:03 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:38:03.706747&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.706747&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.0ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:38:03 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:38:03.712235&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.712235&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:38:03 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190965&quot;, &quot;productId&quot;=&gt;&quot;980190965&quot;}
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190965], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190965], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart::HABTM_Products Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 980190965], [&quot;product_id&quot;, 980190965]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Update (0.4ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 1.0], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.726883&quot;], [&quot;id&quot;, 980190965]]
+[1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mProduct Load (12.0ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190965]]</pre>
+
+<p>Completed 200 OK in 33ms (Views: 8.2ms | ActiveRecord: 14.3ms)</p>
+
+<pre>[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190965], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:38:03 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;New Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;New Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:38:03.755457&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.755457&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:38:03 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:38:03.763003&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:38:03.763003&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.5ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 19:44:12.886580&#39;, &#39;2019-01-19
+19:44:12.886580&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+19:44:12.886580&#39;, &#39;2019-01-19 19:44:12.886580&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:44:12.893339&#39;, &#39;2019-01-19
+19:44:12.893339&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:44:12.893339&#39;, &#39;2019-01-19
+19:44:12.893339&#39;)[0m</p>
+
+<pre>[1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 19:44:12.922257&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:12.922257&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_checkout_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:44:13 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.096724&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.096724&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 0.6ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:44:13 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.107584&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.107584&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/checkout” for 127.0.0.1 at 2019-01-19 17:44:13 -0200
+Processing by <a
+href="../CartsController.html#method-i-checkout">CartsController#checkout</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190964&quot;}
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 27ms (Views: 0.3ms | ActiveRecord: 0.8ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:44:13 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.150132&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.150132&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_add_product_to_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:44:13 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.156715&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.156715&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:44:13 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.160728&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.160728&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:44:13 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190966&quot;, &quot;productId&quot;=&gt;&quot;980190964&quot;}
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart::HABTM_Products Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 980190966], [&quot;product_id&quot;, 980190964]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Update (0.5ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 1.0], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.179610&quot;], [&quot;id&quot;, 980190966]]
+[1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190966]]</pre>
+
+<p>Completed 200 OK in 20ms (Views: 2.3ms | ActiveRecord: 3.8ms)</p>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:44:13 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;New Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;New Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.205350&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.205350&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:44:13 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.212176&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.212176&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.1ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_delete_a_product</p>
+<hr>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:44:13 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;0&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.218592&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.218592&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started DELETE “/product” for 127.0.0.1 at 2019-01-19 17:44:13 -0200
+Processing by <a
+href="../ProductsController.html#method-i-destroy">ProductsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;980190965&quot;}
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190965], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct::HABTM_Carts Destroy (0.8ms)[0m  [1m[31mDELETE FROM &quot;carts_products&quot; WHERE &quot;carts_products&quot;.&quot;product_id&quot; = $1[0m  [[&quot;product_id&quot;, 980190965]]
+[1m[36mProduct Destroy (0.4ms)[0m  [1m[31mDELETE FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1[0m  [[&quot;id&quot;, 980190965]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.7ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_a_list_of_all_products</p>
+<hr>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 17:44:13 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_shoud_create_a_product</p>
+<hr>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:44:13 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:44:13.238788&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:13.238788&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.6ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 19:44:40.250136&#39;, &#39;2019-01-19
+19:44:40.250136&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+19:44:40.250136&#39;, &#39;2019-01-19 19:44:40.250136&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:44:40.256767&#39;, &#39;2019-01-19
+19:44:40.256767&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:44:40.256767&#39;, &#39;2019-01-19
+19:44:40.256767&#39;)[0m</p>
+
+<pre>[1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_a_list_of_all_products</p>
+<hr>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 17:44:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.4ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_shoud_create_a_product</p>
+<hr>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:44:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.354594&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.354594&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_delete_a_product</p>
+<hr>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:44:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;0&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.361941&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.361941&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started DELETE “/product” for 127.0.0.1 at 2019-01-19 17:44:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-destroy">ProductsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;980190964&quot;}
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct::HABTM_Carts Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;carts_products&quot; WHERE &quot;carts_products&quot;.&quot;product_id&quot; = $1[0m  [[&quot;product_id&quot;, 980190964]]
+[1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1[0m  [[&quot;id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 2.1ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.398248&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.398248&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_checkout_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:44:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.404567&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.404567&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:44:40 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.409345&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.409345&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/checkout” for 127.0.0.1 at 2019-01-19 17:44:40 -0200
+Processing by <a
+href="../CartsController.html#method-i-checkout">CartsController#checkout</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190964&quot;}
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.9ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:44:40 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.425498&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.425498&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:44:40 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.432490&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.432490&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_add_product_to_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:44:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.439939&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.439939&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:44:40 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.443554&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.443554&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:44:40 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190967&quot;, &quot;productId&quot;=&gt;&quot;980190966&quot;}
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190967], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart::HABTM_Products Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 980190967], [&quot;product_id&quot;, 980190966]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Update (0.4ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 1.0], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.454907&quot;], [&quot;id&quot;, 980190967]]
+[1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190967]]</pre>
+
+<p>Completed 200 OK in 12ms (Views: 2.3ms | ActiveRecord: 2.3ms)</p>
+
+<pre>[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190967], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:44:40 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;New Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;New Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:44:40.466301&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:44:40.466301&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (1.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 19:46:25.887069&#39;, &#39;2019-01-19
+19:46:25.887069&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+19:46:25.887069&#39;, &#39;2019-01-19 19:46:25.887069&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:46:25.892727&#39;, &#39;2019-01-19
+19:46:25.892727&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:46:25.892727&#39;, &#39;2019-01-19
+19:46:25.892727&#39;)[0m</p>
+
+<pre>[1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 19:46:25.916218&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:25.916218&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_shoud_create_a_product</p>
+<hr>
+
+<pre>[1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:46:25 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.008740&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.008740&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_delete_a_product</p>
+<hr>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:46:26 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;0&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.015895&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.015895&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started DELETE “/product” for 127.0.0.1 at 2019-01-19 17:46:26 -0200
+Processing by <a
+href="../ProductsController.html#method-i-destroy">ProductsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;980190964&quot;}
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct::HABTM_Carts Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;carts_products&quot; WHERE &quot;carts_products&quot;.&quot;product_id&quot; = $1[0m  [[&quot;product_id&quot;, 980190964]]
+[1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1[0m  [[&quot;id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 2.2ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_a_list_of_all_products</p>
+<hr>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 17:46:26 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_add_product_to_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:46:26 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.040916&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.040916&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:46:26 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.045887&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.045887&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:46:26 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190964&quot;, &quot;productId&quot;=&gt;&quot;980190965&quot;}
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190965], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart::HABTM_Products Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 980190964], [&quot;product_id&quot;, 980190965]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Update (0.3ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 1.0], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.062177&quot;], [&quot;id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190964]]</pre>
+
+<p>Completed 200 OK in 17ms (Views: 3.5ms | ActiveRecord: 2.4ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:46:26 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.073021&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.073021&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_checkout_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:46:26 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.078698&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.078698&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:46:26 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.082022&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.082022&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/checkout” for 127.0.0.1 at 2019-01-19 17:46:26 -0200
+Processing by <a
+href="../CartsController.html#method-i-checkout">CartsController#checkout</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190966&quot;}
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190966]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:46:26 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;New Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;New Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.093669&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.093669&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:46:26 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:26.099688&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:26.099688&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.5ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 19:46:45.950991&#39;, &#39;2019-01-19
+19:46:45.950991&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+19:46:45.950991&#39;, &#39;2019-01-19 19:46:45.950991&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:46:45.956257&#39;, &#39;2019-01-19
+19:46:45.956257&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:46:45.956257&#39;, &#39;2019-01-19
+19:46:45.956257&#39;)[0m</p>
+
+<pre>[1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_delete_a_product</p>
+<hr>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:46:46 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;0&quot;}
+[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.059901&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.059901&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started DELETE “/product” for 127.0.0.1 at 2019-01-19 17:46:46 -0200
+Processing by <a
+href="../ProductsController.html#method-i-destroy">ProductsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;980190963&quot;}
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190963], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct::HABTM_Carts Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;carts_products&quot; WHERE &quot;carts_products&quot;.&quot;product_id&quot; = $1[0m  [[&quot;product_id&quot;, 980190963]]
+[1m[36mProduct Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1[0m  [[&quot;id&quot;, 980190963]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.9ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_shoud_create_a_product</p>
+<hr>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:46:46 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.080431&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.080431&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_a_list_of_all_products</p>
+<hr>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 17:46:46 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:46:46 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.096742&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.096742&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_checkout_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:46:46 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.102604&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.102604&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:46:46 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.107534&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.107534&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.8ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/checkout” for 127.0.0.1 at 2019-01-19 17:46:46 -0200
+Processing by <a
+href="../CartsController.html#method-i-checkout">CartsController#checkout</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190964&quot;}
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.8ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:46:46 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;New Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;New Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.126162&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.126162&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_add_product_to_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:46:46 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.131778&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.131778&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:46:46 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.135241&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.135241&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:46:46 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190966&quot;, &quot;productId&quot;=&gt;&quot;980190966&quot;}
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart::HABTM_Products Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 980190966], [&quot;product_id&quot;, 980190966]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Update (0.3ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 1.0], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.147293&quot;], [&quot;id&quot;, 980190966]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190966]]</pre>
+
+<p>Completed 200 OK in 11ms (Views: 1.8ms | ActiveRecord: 2.3ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:46:46 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.157824&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.157824&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 19:46:46.164960&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:46:46.164960&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.7ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 19:47:40.558693&#39;, &#39;2019-01-19
+19:47:40.558693&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+19:47:40.558693&#39;, &#39;2019-01-19 19:47:40.558693&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:47:40.566524&#39;, &#39;2019-01-19
+19:47:40.566524&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 19:47:40.566524&#39;, &#39;2019-01-19
+19:47:40.566524&#39;)[0m</p>
+
+<pre>[1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:47:40 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.781446&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.781446&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:47:40 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;New Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (6.8ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;New Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.791515&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.791515&quot;]]
+[1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 7.3ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 17:47:40 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.805695&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.805695&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_add_product_to_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:47:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.818872&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.818872&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:47:40 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.822549&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.822549&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:47:40 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190966&quot;, &quot;productId&quot;=&gt;&quot;980190963&quot;}
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190963], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart::HABTM_Products Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 980190966], [&quot;product_id&quot;, 980190963]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Update (0.4ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 1.0], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.860518&quot;], [&quot;id&quot;, 980190966]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190966]]</pre>
+
+<p>Completed 200 OK in 42ms (Views: 7.6ms | ActiveRecord: 4.6ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_checkout_a_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:47:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.875327&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.875327&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms) Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 17:47:40 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.878720&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.878720&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 17:47:40 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190967&quot;, &quot;productId&quot;=&gt;&quot;980190964&quot;}
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190967], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190964], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart::HABTM_Products Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 980190967], [&quot;product_id&quot;, 980190964]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Update (0.3ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 1.0], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.886224&quot;], [&quot;id&quot;, 980190967]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190967]]</pre>
+
+<p>Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 1.4ms) Started POST
+“/checkout” for 127.0.0.1 at 2019-01-19 17:47:40 -0200 Processing by <a
+href="../CartsController.html#method-i-checkout">CartsController#checkout</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;980190967&quot;}
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190967], [&quot;LIMIT&quot;, 1]]
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 980190967]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_shoud_create_a_product</p>
+<hr>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:47:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;1&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 1], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.897728&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.897728&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_a_list_of_all_products</p>
+<hr>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 17:47:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_delete_a_product</p>
+<hr>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 17:47:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test product&quot;, &quot;price&quot;=&gt;&quot;1&quot;, &quot;inventory_count&quot;=&gt;&quot;0&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test product&quot;], [&quot;price&quot;, 1.0], [&quot;inventory_count&quot;, 0], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.909962&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.909962&quot;]]
+[1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.8ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started DELETE “/product” for 127.0.0.1 at 2019-01-19 17:47:40 -0200
+Processing by <a
+href="../ProductsController.html#method-i-destroy">ProductsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;980190966&quot;}
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190966], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mProduct::HABTM_Carts Destroy (0.3ms)[0m  [1m[31mDELETE FROM &quot;carts_products&quot; WHERE &quot;carts_products&quot;.&quot;product_id&quot; = $1[0m  [[&quot;product_id&quot;, 980190966]]
+[1m[36mProduct Destroy (0.2ms)[0m  [1m[31mDELETE FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1[0m  [[&quot;id&quot;, 980190966]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.0ms)</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; ORDER BY &quot;products&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.7ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 19:47:40.924895&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 19:47:40.924895&quot;]]
+[1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.9ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m</pre>
 </main>
 
 
