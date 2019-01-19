@@ -64,20 +64,21 @@ class CartsController < ApplicationController
     if not params[:cartId]
       render json: '{ "message": "In order to checkout you need to inform the id of the Cart" }' 
     else 
-      @cart = Cart.find(params[:cartId])
-      if not @cart
+      cart = Cart.find(params[:cartId])
+      if not cart
         render json: '{ "message": "Cart not found" } '
       end 
-      products = @cart.products
+      products = cart.products
       for prod in products
         if prod.inventory_count > 0        
-          prod.inventory_count -= 1
+          prod.inventory_count = prod.inventory_count - 1
+          prod.save 
         end 
       end 
-      if @cart.save 
-        amount_charged = @cart.total_amount
-        @cart.total_amount = 0
-        result = {:cart => @cart, :amount_charged => amount_charged}
+      if cart.save 
+        amount_charged = cart.total_amount
+        cart.total_amount = 0
+        result = {:cart => cart, :amount_charged => amount_charged}
         render json: result
       else 
         render json: '{ "message": "An error has ocurred in your checkout process" }'
