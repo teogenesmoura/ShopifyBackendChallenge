@@ -52,6 +52,18 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Harry-27s+first+time+on+Diagon+Alley">Harry&#39;s first time on Diagon Alley</a>
+    <li><a href="#label-Demo">Demo</a>
+    <li><a href="#label-Getting+started">Getting started</a>
+    <li><a href="#label-Testing">Testing</a>
+    <li><a href="#label-Documentation">Documentation</a>
+  </ul>
+</div>
+
 
   <div id="project-metadata">
     <div id="fileindex-section" class="nav-section">
@@ -99,8 +111,6 @@
   
     <li><a href="./package_json.html">package.json</a>
   
-    <li><a href="./tmp/pids/server_pid.html">server.pid</a>
-  
     <li><a href="./tmp/restart_txt.html">restart</a>
   
   </ul>
@@ -111,31 +121,169 @@
 
 <main role="main" aria-label="Page README.md">
 
-<h1 id="label-README"><a href="README_md.html">README</a><span><a href="#label-README">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<h1 id="label-Harry-27s+first+time+on+Diagon+Alley">Harry&#39;s first time on Diagon Alley<span><a href="#label-Harry-27s+first+time+on+Diagon+Alley">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<p>This <a href="README_md.html">README</a> would normally document whatever
-steps are necessary to get the application up and running.</p>
+<p><em>“There were shops selling robes, shops selling telescopes and strange
+silver instruments Harry had never seen before, windows stacked with
+barrels of bat spleens and eels&#39; eyes, tottering piles of spell books,
+quills, and rolls of parchment, potion bottles, globes of the moon…</em>”“</p>
 
-<p>Things you may want to cover:</p>
-<ul><li>
-<p>Ruby version</p>
-</li><li>
-<p>System dependencies</p>
-</li><li>
-<p>Configuration</p>
-</li><li>
-<p>Database creation</p>
-</li><li>
-<p>Database initialization</p>
-</li><li>
-<p>How to run the test suite</p>
-</li><li>
-<p>Services (job queues, cache servers, search engines, etc.)</p>
-</li><li>
-<p>Deployment instructions</p>
-</li><li>
-<p>...</p>
-</li></ul>
+<p><img src="https://media.giphy.com/media/U4kB6WUGv6THW/giphy.gif"></p>
+
+<p>Although invisible to muggles, the Diagon Alley is where every wizard buys
+magical supplies in order to attend their first year at Hogwarts. However,
+since it&#39;s Harry&#39;s first time there, we&#39;ll help him by
+providing a ready-to-use shopping cart API with which he&#39;ll be able to
+create a cart and add all the item he needs to be happy and successful at
+school.</p>
+
+<p><em>well, we don&#39;t need to tell him about a certain someone who must
+not be named just yet, right?</em></p>
+
+<p>The API is ready for us and for Harry, so let&#39;s get started!</p>
+
+<h3 id="label-Demo">Demo<span><a href="#label-Demo">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>There&#39;s an online version of our backend-server already up and running,
+so we&#39;ll start by going there.</p>
+
+<p>First, we need to create a shopping cart. In order to do so, we (and Harry
+too!) need to fire a POST request to the <code>/cart</code> endpoint in our
+API and create a new shopping cart. You might use any program or
+application that handles that kind of request.</p>
+
+<p>You can choose your favorite one or follow us by opening up your terminal
+(if you&#39;re on linux or mac) and using CURL in order to perform such
+requests, which is what we&#39;re going to do from now on.</p>
+
+<p>Open your terminal and type:</p>
+
+<pre>curl -d &quot;title=harry&#39;s shoping cart&quot; -H &quot;Content-Type: application/x-www-form-urlencoded&quot; -X POST https://backendchallengeshopify.herokuapp.com/cart</pre>
+
+<p>which should give you the following response:</p>
+
+<pre>{&quot;id&quot;:4,&quot;title&quot;:&quot;harry&#39;s shoping cart&quot;,&quot;total_amount&quot;:0.0,&quot;created_at&quot;:&quot;2019-01-19T20:22:56.148Z&quot;,&quot;updated_at&quot;:&quot;2019-01-19T20:22:56.148Z&quot;</pre>
+
+<p><em>The JSON object the API sent to you contain might contain different
+numbers for the </em>id_ and <em>date</em> fields, but don&#39;t worry as
+that is totally normal. Also, take note of the <em>id</em> field, we&#39;ll
+need it later fellow wizard!_</p>
+
+<p>Next, we&#39;ll need to create the products Harry is going to buy and add
+them to our API. As an example, we&#39;ll create two of the items included
+in Harry&#39;s school list:</p>
+
+<p><em>A History of Magic</em> by Bathilda Bagshot and 1 wand
+(<em>source:</em> <a
+href="https://www.pottermore.com/book-extract-long/harrys-school-list">www.pottermore.com/book-extract-long/harrys-school-list</a>)</p>
+
+<p>In your terminal window, please type the following command:</p>
+
+<pre>curl -d &quot;title=wand&amp;price=50&amp;inventory_count=10&quot; -H &quot;Content-Type: application/x-www-form-urlencoded&quot; -X POST https://backendchallengeshopify.herokuapp.com/product</pre>
+
+<p>to which you should receive a response that looks like the following:
+<code>
+{&quot;id&quot;:1,&quot;title&quot;:&quot;wand&quot;,&quot;price&quot;:50.0,&quot;inventory_count&quot;:10,&quot;created_at&quot;:&quot;2019-01-19T20:31:26.927Z&quot;,&quot;updated_at&quot;:&quot;2019-01-19T20:31:26.927Z&quot;}
+</code> then, let&#39;s create the book item: <code> curl -d &quot;title=A
+History of Magic&amp;price=30&amp;inventory_count=15&quot; -H
+&quot;Content-Type: application/x-www-form-urlencoded&quot; -X POST
+https://backendchallengeshopify.herokuapp.com/product </code> If everything
+went correctly, you should have received a response like this:</p>
+
+<pre class="ruby">{<span class="ruby-value">&quot;id&quot;:</span><span class="ruby-value">2</span>,<span class="ruby-value">&quot;title&quot;:</span><span class="ruby-string">&quot;A History of Magic&quot;</span>,<span class="ruby-value">&quot;price&quot;:</span><span class="ruby-value">30.0</span>,<span class="ruby-value">&quot;inventory_count&quot;:</span><span class="ruby-value">15</span>,<span class="ruby-value">&quot;created_at&quot;:</span><span class="ruby-string">&quot;2019-01-19T20:33:40.831Z&quot;</span>,<span class="ruby-value">&quot;updated_at&quot;:</span><span class="ruby-string">&quot;2019-01-19T20:33:40.831Z&quot;</span>}
+</pre>
+
+<p>Awesome! Now we have set up a shopping cart and the two products Harry will
+need. Next step comes naturally then: We&#39;ll need to add both products
+to the shopping cart we&#39;ve created previously. To do so, type this in
+your terminal</p>
+
+<pre>curl -d &quot;cartId=4&amp;productId=1&quot; -H &quot;Content-Type: application/x-www-form-urlencoded&quot; -X POST https://backendchallengeshopify.herokuapp.com/addProductToCart</pre>
+
+<p>to add a wand to Harry&#39;s cart and then <code> curl -d
+&quot;cartId=4&amp;productId=2&quot; -H &quot;Content-Type:
+application/x-www-form-urlencoded&quot; -X POST
+https://backendchallengeshopify.herokuapp.com/addProductToCart </code> to
+add the book.</p>
+
+<p>Please note that we&#39;re using the <em>id</em> field of the response
+provided by the server in order to add products to our shopping cart. Since
+the server returned 1 and 2 as <em>ids</em> for the wand and the book
+respectively, that&#39;s what we use in our POST requests.</p>
+
+<p>Wonderful! Now we have a shopping cart that contains two products. Harry
+now needs to pay for those items (<em>no magical wrongdoings here
+boy!</em>) and we&#39;ll provide him with a <em>checkout</em> endpoint in
+our API. The POST request that allows us to do that is the following:</p>
+
+<pre class="ruby">{<span class="ruby-value">&quot;cart&quot;:</span>{<span class="ruby-value">&quot;id&quot;:</span><span class="ruby-value">4</span>,<span class="ruby-value">&quot;title&quot;:</span><span class="ruby-string">&quot;harry&#39;s shoping cart&quot;</span>,<span class="ruby-value">&quot;total_amount&quot;:</span><span class="ruby-value">0.0</span>,<span class="ruby-value">&quot;created_at&quot;:</span><span class="ruby-string">&quot;2019-01-19T20:22:56.148Z&quot;</span>,<span class="ruby-value">&quot;updated_at&quot;:</span><span class="ruby-string">&quot;2019-01-19T20:48:20.164Z&quot;</span>},<span class="ruby-value">&quot;amount_charged&quot;:</span><span class="ruby-value">80.0</span>}
+</pre>
+
+<p>With the response the server is telling us that everything went fine! The
+new total_amount in Harry&#39;s cart is $0 and the amount the store charged
+from him is $80, which is the sum of the price of the book and the wand.</p>
+
+<p><img
+src="https://media1.giphy.com/media/26gN27K98gXfnvEJy/giphy.gif?cid=3640f6095c438ddd6d71744a326a69d3"></p>
+
+<p>To check if everything went really smoothly, we can perform one final
+check: Wether the items he bought were actually removed from the
+store&#39;s inventory or not. To do so, type this in your terminal:</p>
+
+<pre>curl -i -H &quot;Accept: application/json&quot; -H &quot;Content-Type: application/json&quot; -X GET https://backendchallengeshopify.herokuapp.com/products</pre>
+
+<p>The response should be the following:</p>
+
+<pre class="ruby">[{<span class="ruby-value">&quot;id&quot;:</span><span class="ruby-value">1</span>,<span class="ruby-value">&quot;title&quot;:</span><span class="ruby-string">&quot;wand&quot;</span>,<span class="ruby-value">&quot;price&quot;:</span><span class="ruby-value">50.0</span>,<span class="ruby-value">&quot;inventory_count&quot;:</span><span class="ruby-value">9</span>,<span class="ruby-value">&quot;created_at&quot;:</span><span class="ruby-string">&quot;2019-01-19T20:31:26.927Z&quot;</span>,<span class="ruby-value">&quot;updated_at&quot;:</span><span class="ruby-string">&quot;2019-01-19T21:00:00.533Z&quot;</span>},{<span class="ruby-value">&quot;id&quot;:</span><span class="ruby-value">2</span>,<span class="ruby-value">&quot;title&quot;:</span><span class="ruby-string">&quot;A History of Magic&quot;</span>,<span class="ruby-value">&quot;price&quot;:</span><span class="ruby-value">30.0</span>,<span class="ruby-value">&quot;inventory_count&quot;:</span><span class="ruby-value">14</span>,<span class="ruby-value">&quot;created_at&quot;:</span><span class="ruby-string">&quot;2019-01-19T20:33:40.831Z&quot;</span>,<span class="ruby-value">&quot;updated_at&quot;:</span><span class="ruby-string">&quot;2019-01-19T21:00:00.592Z&quot;</span>}]
+</pre>
+
+<p>You can see that the inventory_count field for both items is 1 less than it
+was when we created both products (9 vs 10 and 14 vs 15), so we know the
+order happened just as we expected.</p>
+
+<p>That&#39;s it for our demo! I hope you enjoyed helping Harry fulfill his
+magical duties like a pro :)</p>
+
+<h3 id="label-Getting+started">Getting started<span><a href="#label-Getting+started">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Oh! So you want to download the code and help Harry even more by coding
+your own functionality or improving the test coverage? Awesome! Here&#39;s
+what you need to do:</p>
+
+<p>Start by cloning this repo:</p>
+
+<pre>git clone https://github.com/teogenesmoura/backendChallenge.git</pre>
+
+<p>run <code> rake db:migrate </code> and you should be all set! the app will
+be running on <code> http://localhost:3000 </code> If you run into
+gem-related issues, try running <code> bundle install  </code> In case you
+find any trouble with the database, there are two commands that might come
+to rescue:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rake</span> <span class="ruby-value">db:</span><span class="ruby-identifier">setup</span>
+</pre>
+
+<p>and <code> rake db:reset </code> Warning: be careful with the last one
+since it&#39;ll delete all records you have stored in the database and no
+magic (<em>pun intended</em>) will help you after you&#39;ve done that.</p>
+
+<h3 id="label-Testing">Testing<span><a href="#label-Testing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>In order to run tests, open your terminal and go to the root folder of the
+application. From there, run</p>
+
+<pre class="ruby"><span class="ruby-identifier">rails</span> <span class="ruby-identifier">test</span>
+</pre>
+
+<p>It will run all tests on the test folder.</p>
+
+<h3 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Documentation is available on the <code>public/doc</code> folder or online
+here:</p>
+
+<p><a
+href="https://backendchallengeshopify.herokuapp.com/doc">backendchallengeshopify.herokuapp.com/doc</a></p>
 </main>
 
 

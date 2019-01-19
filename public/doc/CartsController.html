@@ -156,26 +156,26 @@ listing of all products in the cart, including the new one</p>
 
           
           <div class="method-source-code" id="addProductToCart-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 129</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 130</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">addProductToCart</span> 
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:productId</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;You need to inform both the cart id and the product id&quot; }&#39;</span>
   <span class="ruby-keyword">else</span> 
-    <span class="ruby-ivar">@cart</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>])
-    <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@cart</span> 
+    <span class="ruby-identifier">cart</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">cart</span> 
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;Cart not found&quot; } &#39;</span>
     <span class="ruby-keyword">end</span>
-    <span class="ruby-ivar">@prod</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:productId</span>])
-    <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@prod</span> 
+    <span class="ruby-identifier">prod</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:productId</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">prod</span> 
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;Product not found&quot; }&#39;</span>
     <span class="ruby-keyword">end</span> 
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@prod</span>.<span class="ruby-identifier">inventory_count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">prod</span>.<span class="ruby-identifier">inventory_count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;No more units available of this product :( &quot; }&#39;</span>
     <span class="ruby-keyword">else</span> 
-      <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">products</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@prod</span> 
-      <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">total_amount</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@prod</span>.<span class="ruby-identifier">price</span>
-      <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">save</span> 
-      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">products</span> 
+      <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">products</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">prod</span> 
+      <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">total_amount</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">prod</span>.<span class="ruby-identifier">price</span>
+      <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">save</span> 
+      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">products</span> 
     <span class="ruby-keyword">end</span> 
   <span class="ruby-keyword">end</span> 
 <span class="ruby-keyword">end</span></pre>
@@ -242,20 +242,21 @@ value:</p>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;In order to checkout you need to inform the id of the Cart&quot; }&#39;</span> 
   <span class="ruby-keyword">else</span> 
-    <span class="ruby-ivar">@cart</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>])
-    <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@cart</span>
+    <span class="ruby-identifier">cart</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">cart</span>
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;Cart not found&quot; } &#39;</span>
     <span class="ruby-keyword">end</span> 
-    <span class="ruby-identifier">products</span> = <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">products</span>
+    <span class="ruby-identifier">products</span> = <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">products</span>
     <span class="ruby-keyword">for</span> <span class="ruby-identifier">prod</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">products</span>
       <span class="ruby-keyword">if</span> <span class="ruby-identifier">prod</span>.<span class="ruby-identifier">inventory_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>        
-        <span class="ruby-identifier">prod</span>.<span class="ruby-identifier">inventory_count</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">prod</span>.<span class="ruby-identifier">inventory_count</span> = <span class="ruby-identifier">prod</span>.<span class="ruby-identifier">inventory_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">prod</span>.<span class="ruby-identifier">save</span> 
       <span class="ruby-keyword">end</span> 
     <span class="ruby-keyword">end</span> 
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">save</span> 
-      <span class="ruby-identifier">amount_charged</span> = <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">total_amount</span>
-      <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">total_amount</span> = <span class="ruby-value">0</span>
-      <span class="ruby-identifier">result</span> = {<span class="ruby-value">:cart</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@cart</span>, <span class="ruby-value">:amount_charged</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">amount_charged</span>}
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">save</span> 
+      <span class="ruby-identifier">amount_charged</span> = <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">total_amount</span>
+      <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">total_amount</span> = <span class="ruby-value">0</span>
+      <span class="ruby-identifier">result</span> = {<span class="ruby-value">:cart</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">cart</span>, <span class="ruby-value">:amount_charged</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">amount_charged</span>}
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">result</span>
     <span class="ruby-keyword">else</span> 
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;An error has ocurred in your checkout process&quot; }&#39;</span>
@@ -364,7 +365,7 @@ Cart.products status, or error message if something</p>
 
           
           <div class="method-source-code" id="deleteProductFromCart-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 95</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteProductFromCart</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:productId</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;You need to inform both the cart id and the product id&quot; }&#39;</span>
@@ -438,14 +439,14 @@ informing wether the operation was successful</p>
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 173</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 174</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span> 
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
-    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39; { &quot;message&quot;: &quot;Field productId is missing&quot; } &#39;</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39; { &quot;message&quot;: &quot;Field cartId is missing&quot; } &#39;</span>
   <span class="ruby-keyword">else</span> 
     <span class="ruby-identifier">cart</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">destroy</span> 
-      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>  <span class="ruby-string">&#39; { &quot;message&quot;: &quot;Product successfully deleted&quot;}&#39;</span>
+      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>  <span class="ruby-string">&#39; { &quot;message&quot;: &quot;Cart successfully deleted&quot;}&#39;</span>
     <span class="ruby-keyword">else</span> 
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>  <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;There was a problem with your request&quot; }&#39;</span>
     <span class="ruby-keyword">end</span> 
@@ -581,7 +582,7 @@ all products included in the cart requested or</p>
 
           
           <div class="method-source-code" id="productsInCart-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 158</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 159</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">productsInCart</span> 
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;Please inform the id of the cart&quot;}&#39;</span>

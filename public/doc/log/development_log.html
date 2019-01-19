@@ -99,8 +99,6 @@
   
     <li><a href="../package_json.html">package.json</a>
   
-    <li><a href="../tmp/pids/server_pid.html">server.pid</a>
-  
     <li><a href="../tmp/restart_txt.html">restart</a>
   
   </ul>
@@ -4028,6 +4026,323 @@ as <strong>/</strong></p>
 ↳ app/controllers/carts_controller.rb:64</pre>
 
 <p>Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 4.5ms)</p>
+
+<p>Started POST “/data” for 127.0.0.1 at 2019-01-19 18:18:45 -0200</p>
+
+<p>ActionController::RoutingError (No route matches [POST] “/data”):</p>
+
+<p>actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in
+`call&#39; web-console (3.7.0) lib/web_console/middleware.rb:135:in
+`call_app&#39; web-console (3.7.0) lib/web_console/middleware.rb:30:in
+`block in call&#39; web-console (3.7.0) lib/web_console/middleware.rb:20:in
+`catch&#39; web-console (3.7.0) lib/web_console/middleware.rb:20:in
+`call&#39; actionpack (5.2.2)
+lib/action_dispatch/middleware/show_exceptions.rb:33:in `call&#39; railties
+(5.2.2) lib/rails/rack/logger.rb:38:in `call_app&#39; railties (5.2.2)
+lib/rails/rack/logger.rb:26:in `block in call&#39; activesupport (5.2.2)
+lib/active_support/tagged_logging.rb:71:in `block in tagged&#39;
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in
+`tagged&#39; activesupport (5.2.2)
+lib/active_support/tagged_logging.rb:71:in `tagged&#39; railties (5.2.2)
+lib/rails/rack/logger.rb:26:in `call&#39; sprockets-rails (3.2.1)
+lib/sprockets/rails/quiet_assets.rb:13:in `call&#39; actionpack (5.2.2)
+lib/action_dispatch/middleware/remote_ip.rb:81:in `call&#39; actionpack
+(5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call&#39; rack
+(2.0.6) lib/rack/runtime.rb:22:in `call&#39; activesupport (5.2.2)
+lib/active_support/cache/strategy/local_cache_middleware.rb:29:in
+`call&#39; actionpack (5.2.2)
+lib/action_dispatch/middleware/executor.rb:14:in `call&#39; actionpack
+(5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call&#39; rack
+(2.0.6) lib/rack/sendfile.rb:111:in `call&#39; railties (5.2.2)
+lib/rails/engine.rb:524:in `call&#39; puma (3.12.0)
+lib/puma/configuration.rb:225:in `call&#39; puma (3.12.0)
+lib/puma/server.rb:658:in `handle_request&#39; puma (3.12.0)
+lib/puma/server.rb:472:in `process_client&#39; puma (3.12.0)
+lib/puma/server.rb:332:in `block in run&#39; puma (3.12.0)
+lib/puma/thread_pool.rb:133:in `block in spawn_thread&#39; Started POST
+“/cart” for 127.0.0.1 at 2019-01-19 18:45:13 -0200 Processing by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;teo cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:37
+[1m[36mCart Create (0.6ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;teo cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 20:45:14.059201&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 20:45:14.059201&quot;]]
+↳ app/controllers/carts_controller.rb:37
+[1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:37</pre>
+
+<p>Completed 200 OK in 30ms (Views: 0.8ms | ActiveRecord: 11.9ms)</p>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 18:45:43 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Chocolate&quot;, &quot;price&quot;=&gt;&quot;2&quot;, &quot;inventory_count&quot;=&gt;&quot;2&quot;}
+[1m[35m (5.9ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/products_controller.rb:25
+[1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Chocolate&quot;], [&quot;price&quot;, 2.0], [&quot;inventory_count&quot;, 2], [&quot;created_at&quot;, &quot;2019-01-19 20:45:43.435695&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 20:45:43.435695&quot;]]
+↳ app/controllers/products_controller.rb:25
+[1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/products_controller.rb:25</pre>
+
+<p>Completed 200 OK in 45ms (Views: 0.3ms | ActiveRecord: 23.5ms)</p>
+
+<p>Started POST “/product” for 127.0.0.1 at 2019-01-19 18:45:56 -0200
+Processing by <a
+href="../ProductsController.html#method-i-create">ProductsController#create</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Hammer&quot;, &quot;price&quot;=&gt;&quot;3&quot;, &quot;inventory_count&quot;=&gt;&quot;4&quot;}
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/products_controller.rb:25
+[1m[36mProduct Create (7.3ms)[0m  [1m[32mINSERT INTO &quot;products&quot; (&quot;title&quot;, &quot;price&quot;, &quot;inventory_count&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4, $5) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Hammer&quot;], [&quot;price&quot;, 3.0], [&quot;inventory_count&quot;, 4], [&quot;created_at&quot;, &quot;2019-01-19 20:45:56.478354&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 20:45:56.478354&quot;]]
+↳ app/controllers/products_controller.rb:25
+[1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/products_controller.rb:25</pre>
+
+<p>Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 13.1ms)</p>
+
+<p>Started GET “/carts” for 127.0.0.1 at 2019-01-19 18:46:27 -0200 Processing
+by <a
+href="../CartsController.html#method-i-index">CartsController#index</a> as
+<strong>/</strong></p>
+
+<pre>Parameters: {&quot;productId&quot;=&gt;&quot;1&quot;, &quot;cartId&quot;=&gt;&quot;1&quot;}
+[1m[36mCart Load (1.0ms)[0m  [1m[34mSELECT &quot;carts&quot;.* FROM &quot;carts&quot;[0m
+↳ app/controllers/carts_controller.rb:9</pre>
+
+<p>Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.0ms)</p>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 18:46:35 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;productId&quot;=&gt;&quot;1&quot;, &quot;cartId&quot;=&gt;&quot;1&quot;}
+[1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m
+↳ app/controllers/products_controller.rb:7</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms)</p>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 18:47:08 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;productId&quot;=&gt;&quot;2&quot;, &quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:133
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:137</pre>
+
+<p>Completed 500 Internal Server Error in 194ms (ActiveRecord: 2.2ms)</p>
+
+<p>NameError (undefined local variable or method `prod&#39; for
+#&lt;CartsController:0x00007fb09bc4f628&gt; Did you mean?  @prod</p>
+
+<pre>proc):</pre>
+
+<p>app/controllers/carts_controller.rb:138:in `addProductToCart&#39; Started
+POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 18:47:21 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;productId&quot;=&gt;&quot;2&quot;, &quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:133
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:137
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:144
+[1m[36mCart::HABTM_Products Create (0.7ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 2], [&quot;product_id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:144
+[1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:144
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:146
+[1m[36mCart Update (0.5ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 2.0], [&quot;updated_at&quot;, &quot;2019-01-19 20:47:21.265793&quot;], [&quot;id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:146
+[1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:146
+[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:147</pre>
+
+<p>Completed 200 OK in 61ms (Views: 3.2ms | ActiveRecord: 16.1ms)</p>
+
+<p>Started POST “/addProductToCart” for 127.0.0.1 at 2019-01-19 18:47:28 -0200
+Processing by <a
+href="../CartsController.html#method-i-addProductToCart">CartsController#addProductToCart</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;productId&quot;=&gt;&quot;3&quot;, &quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:133
+[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 3], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:137
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:144
+[1m[36mCart::HABTM_Products Create (0.9ms)[0m  [1m[32mINSERT INTO &quot;carts_products&quot; (&quot;cart_id&quot;, &quot;product_id&quot;) VALUES ($1, $2)[0m  [[&quot;cart_id&quot;, 2], [&quot;product_id&quot;, 3]]
+↳ app/controllers/carts_controller.rb:144
+[1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:144
+[1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:146
+[1m[36mCart Update (0.5ms)[0m  [1m[33mUPDATE &quot;carts&quot; SET &quot;total_amount&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;carts&quot;.&quot;id&quot; = $3[0m  [[&quot;total_amount&quot;, 5.0], [&quot;updated_at&quot;, &quot;2019-01-19 20:47:28.100902&quot;], [&quot;id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:146
+[1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:146
+[1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:147</pre>
+
+<p>Completed 200 OK in 30ms (Views: 2.7ms | ActiveRecord: 16.0ms)</p>
+
+<p>Started POST “/checkout” for 127.0.0.1 at 2019-01-19 18:47:45 -0200
+Processing by <a
+href="../CartsController.html#method-i-checkout">CartsController#checkout</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:67
+[1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:72
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:77
+[1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:77</pre>
+
+<p>Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 1.5ms)</p>
+
+<p>Started GET “/productsInCart/2” for 127.0.0.1 at 2019-01-19 18:56:03 -0200
+Processing by <a
+href="../CartsController.html#method-i-productsInCart">CartsController#productsInCart</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;2&quot;, &quot;id&quot;=&gt;&quot;2&quot;}
+[1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:162
+[1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:162</pre>
+
+<p>Completed 200 OK in 54ms (Views: 8.5ms | ActiveRecord: 9.6ms)</p>
+
+<p>Started GET “/checkout” for 127.0.0.1 at 2019-01-19 18:56:18 -0200</p>
+
+<p>ActionController::RoutingError (No route matches [GET] “/checkout”):</p>
+
+<p>actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in
+`call&#39; web-console (3.7.0) lib/web_console/middleware.rb:135:in
+`call_app&#39; web-console (3.7.0) lib/web_console/middleware.rb:30:in
+`block in call&#39; web-console (3.7.0) lib/web_console/middleware.rb:20:in
+`catch&#39; web-console (3.7.0) lib/web_console/middleware.rb:20:in
+`call&#39; actionpack (5.2.2)
+lib/action_dispatch/middleware/show_exceptions.rb:33:in `call&#39; railties
+(5.2.2) lib/rails/rack/logger.rb:38:in `call_app&#39; railties (5.2.2)
+lib/rails/rack/logger.rb:26:in `block in call&#39; activesupport (5.2.2)
+lib/active_support/tagged_logging.rb:71:in `block in tagged&#39;
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in
+`tagged&#39; activesupport (5.2.2)
+lib/active_support/tagged_logging.rb:71:in `tagged&#39; railties (5.2.2)
+lib/rails/rack/logger.rb:26:in `call&#39; sprockets-rails (3.2.1)
+lib/sprockets/rails/quiet_assets.rb:13:in `call&#39; actionpack (5.2.2)
+lib/action_dispatch/middleware/remote_ip.rb:81:in `call&#39; actionpack
+(5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call&#39; rack
+(2.0.6) lib/rack/runtime.rb:22:in `call&#39; activesupport (5.2.2)
+lib/active_support/cache/strategy/local_cache_middleware.rb:29:in
+`call&#39; actionpack (5.2.2)
+lib/action_dispatch/middleware/executor.rb:14:in `call&#39; actionpack
+(5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call&#39; rack
+(2.0.6) lib/rack/sendfile.rb:111:in `call&#39; railties (5.2.2)
+lib/rails/engine.rb:524:in `call&#39; puma (3.12.0)
+lib/puma/configuration.rb:225:in `call&#39; puma (3.12.0)
+lib/puma/server.rb:658:in `handle_request&#39; puma (3.12.0)
+lib/puma/server.rb:472:in `process_client&#39; puma (3.12.0)
+lib/puma/server.rb:332:in `block in run&#39; puma (3.12.0)
+lib/puma/thread_pool.rb:133:in `block in spawn_thread&#39; Started POST
+“/checkout” for 127.0.0.1 at 2019-01-19 18:56:25 -0200 Processing by <a
+href="../CartsController.html#method-i-checkout">CartsController#checkout</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:67
+[1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:72
+[1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:77
+[1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:77</pre>
+
+<p>Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 2.6ms)</p>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 18:56:41 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mProduct Load (11.0ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m
+↳ app/controllers/products_controller.rb:7</pre>
+
+<p>Completed 200 OK in 13ms (Views: 1.8ms | ActiveRecord: 11.0ms)</p>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 18:57:49 -0200</p>
+
+<pre>[1m[35m (8.2ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+↳ /Users/teogenesmoura/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98</pre>
+
+<p>Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m
+↳ app/controllers/products_controller.rb:7</pre>
+
+<p>Completed 200 OK in 27ms (Views: 8.5ms | ActiveRecord: 4.4ms)</p>
+
+<p>Started POST “/checkout” for 127.0.0.1 at 2019-01-19 18:58:06 -0200
+Processing by <a
+href="../CartsController.html#method-i-checkout">CartsController#checkout</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 2], [&quot;LIMIT&quot;, 1]]
+↳ app/controllers/carts_controller.rb:67
+[1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot; INNER JOIN &quot;carts_products&quot; ON &quot;products&quot;.&quot;id&quot; = &quot;carts_products&quot;.&quot;product_id&quot; WHERE &quot;carts_products&quot;.&quot;cart_id&quot; = $1[0m  [[&quot;cart_id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:72
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:75
+[1m[36mProduct Update (0.6ms)[0m  [1m[33mUPDATE &quot;products&quot; SET &quot;inventory_count&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;products&quot;.&quot;id&quot; = $3[0m  [[&quot;inventory_count&quot;, 1], [&quot;updated_at&quot;, &quot;2019-01-19 20:58:06.099044&quot;], [&quot;id&quot;, 2]]
+↳ app/controllers/carts_controller.rb:75
+[1m[35m (16.6ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:75
+[1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:75
+[1m[36mProduct Update (0.4ms)[0m  [1m[33mUPDATE &quot;products&quot; SET &quot;inventory_count&quot; = $1, &quot;updated_at&quot; = $2 WHERE &quot;products&quot;.&quot;id&quot; = $3[0m  [[&quot;inventory_count&quot;, 3], [&quot;updated_at&quot;, &quot;2019-01-19 20:58:06.120554&quot;], [&quot;id&quot;, 3]]
+↳ app/controllers/carts_controller.rb:75
+[1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:75
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+↳ app/controllers/carts_controller.rb:78
+[1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+↳ app/controllers/carts_controller.rb:78</pre>
+
+<p>Completed 200 OK in 111ms (Views: 0.6ms | ActiveRecord: 28.8ms)</p>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 18:58:26 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as <strong>/</strong></p>
+
+<pre>Parameters: {&quot;cartId&quot;=&gt;&quot;2&quot;}
+[1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m
+↳ app/controllers/products_controller.rb:7</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.5ms)</p>
 </main>
 
 
