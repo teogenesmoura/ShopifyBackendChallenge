@@ -163,4 +163,24 @@ class CartsController < ApplicationController
     end 
   end 
 
+  # Deletes a cart from the database given it's id 
+  # ==== Attributes
+  # * *Params* :
+  #   - +id+ -> _Integer_ - The id of the cart which will be destroyed
+  # * *Returns* :
+  #   - +message+ -> _String_ - message Returns a message informing wether the operation was successful
+  #   or not 
+  def destroy 
+    if not params[:id]
+      render json: ' { "message": "Field productId is missing" } '
+    else 
+      cart = Cart.find(params[:id])
+      if cart.destroy 
+        render json:  ' { "message": "Product successfully deleted"}'
+      else 
+        render json:  '{ "message": "There was a problem with your request" }'
+      end 
+    end 
+  end 
+
 end
