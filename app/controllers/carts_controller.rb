@@ -130,21 +130,21 @@ class CartsController < ApplicationController
     if not params[:cartId] or not params[:productId]
       render json: '{ "message": "You need to inform both the cart id and the product id" }'
     else 
-      @cart = Cart.find(params[:cartId])
-      if not @cart 
+      cart = Cart.find(params[:cartId])
+      if not cart 
         render json: '{ "message": "Cart not found" } '
       end
-      @prod = Product.find(params[:productId])
-      if not @prod 
+      prod = Product.find(params[:productId])
+      if not prod 
         render json: '{ "message": "Product not found" }'
       end 
-      if @prod.inventory_count == 0
+      if prod.inventory_count == 0
         render json: '{ "message": "No more units available of this product :( " }'
       else 
-        @cart.products << @prod 
-        @cart.total_amount += @prod.price
-        @cart.save 
-        render json: @cart.products 
+        cart.products << prod 
+        cart.total_amount += prod.price
+        cart.save 
+        render json: cart.products 
       end 
     end 
   end
