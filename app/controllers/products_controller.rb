@@ -1,6 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-
   # GET /products
   def index
     @products = Product.all
@@ -25,12 +23,16 @@ class ProductsController < ApplicationController
   end
 
   # DELETE /products/1
-  # DELETE /products/1.json
-  # def destroy
-  #   @product.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy 
+    if not params[:id]
+      render json: ' { "message": "Field productId is missing" } '
+    else 
+      product = Product.find(params[:id])
+      if product.destroy 
+        render json:  ' { "message": "Product successfully deleted"}'
+      else 
+        render json:  '{ "message": "There was a problem with your request" }'
+      end 
+    end 
+  end 
 end

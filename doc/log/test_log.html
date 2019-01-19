@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>test.log - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../README_md.html">README</a>
+  
+    <li><a href="../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../app/assets/config/manifest_js.html">manifest.js</a>
+  
+    <li><a href="../app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../app/assets/javascripts/cable_js.html">cable.js</a>
+  
+    <li><a href="../app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../app/views/carts/_cart_json_jbuilder.html">_cart.json.jbuilder</a>
+  
+    <li><a href="../app/views/carts/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../app/views/carts/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../app/views/products/_product_json_jbuilder.html">_product.json.jbuilder</a>
+  
+    <li><a href="../app/views/products/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../app/views/products/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../config_ru.html">config.ru</a>
+  
+    <li><a href="../config/credentials_yml_enc.html">credentials.yml.enc</a>
+  
+    <li><a href="../config/master_key.html">master.key</a>
+  
+    <li><a href="../log/development_log.html">development.log</a>
+  
+    <li><a href="../log/test_log.html">test.log</a>
+  
+    <li><a href="../package_json.html">package.json</a>
+  
+    <li><a href="../public/404_html.html">404.html</a>
+  
+    <li><a href="../public/422_html.html">422.html</a>
+  
+    <li><a href="../public/500_html.html">500.html</a>
+  
+    <li><a href="../public/apple-touch-icon-precomposed_png.html">apple-touch-icon-precomposed.png</a>
+  
+    <li><a href="../public/apple-touch-icon_png.html">apple-touch-icon.png</a>
+  
+    <li><a href="../public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../public/robots_txt.html">robots</a>
+  
+    <li><a href="../tmp/pids/server_pid.html">server.pid</a>
+  
+    <li><a href="../tmp/restart_txt.html">restart</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page log/test.log">
+
+<pre>[1m[35m (6.8ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (2.6ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (4.0ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 16:07:40.872609&#39;, &#39;2019-01-19
+16:07:40.872609&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+16:07:40.872609&#39;, &#39;2019-01-19 16:07:40.872609&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:07:40.908604&#39;, &#39;2019-01-19
+16:07:40.908604&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:07:40.908604&#39;, &#39;2019-01-19
+16:07:40.908604&#39;)[0m</p>
+
+<pre>[1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_destroy_product</p>
+<hr>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (8.9ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started DELETE “/product.980190962” for 127.0.0.1 at 2019-01-19 14:07:41
+-0200</p>
+
+<pre>[1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_edit</p>
+<hr>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_update_product</p>
+<hr>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started PATCH “/product.980190962” for 127.0.0.1 at 2019-01-19 14:07:41
+-0200</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_show_product</p>
+<hr>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started GET “/product.980190962” for 127.0.0.1 at 2019-01-19 14:07:41 -0200</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_index</p>
+<hr>
+
+<pre>[1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started GET “/products” for 127.0.0.1 at 2019-01-19 14:07:41 -0200
+Processing by <a
+href="../ProductsController.html#method-i-index">ProductsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT &quot;products&quot;.* FROM &quot;products&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_get_new</p>
+<hr>
+
+<pre>[1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>ProductsControllerTest: test_should_create_product</p>
+<hr>
+
+<pre>[1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  &quot;products&quot;.* FROM &quot;products&quot; WHERE &quot;products&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;products&quot;[0m</pre>
+
+<p>Started POST “/products” for 127.0.0.1 at 2019-01-19 14:07:41 -0200</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_edit</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/carts” for 127.0.0.1 at 2019-01-19 14:07:41 -0200</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_destroy_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started DELETE “/cart.980190962” for 127.0.0.1 at 2019-01-19 14:07:41 -0200</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_update_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started PATCH “/cart.980190962” for 127.0.0.1 at 2019-01-19 14:07:41 -0200</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_new</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_show_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started GET “/cart.980190962” for 127.0.0.1 at 2019-01-19 14:07:41 -0200</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_index</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started GET “/carts” for 127.0.0.1 at 2019-01-19 14:07:41 -0200 Processing
+by <a
+href="../CartsController.html#method-i-index">CartsController#index</a> as
+HTML</p>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT &quot;carts&quot;.* FROM &quot;carts&quot;[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.6ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (1.0ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (7.2ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 16:25:21.791772&#39;, &#39;2019-01-19
+16:25:21.791772&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+16:25:21.791772&#39;, &#39;2019-01-19 16:25:21.791772&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:25:21.799532&#39;, &#39;2019-01-19
+16:25:21.799532&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:25:21.799532&#39;, &#39;2019-01-19
+16:25:21.799532&#39;)[0m</p>
+
+<pre>[1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 16:25:21.943635&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:25:21.943635&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (1.0ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 16:25:43.320149&#39;, &#39;2019-01-19
+16:25:43.320149&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+16:25:43.320149&#39;, &#39;2019-01-19 16:25:43.320149&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:25:43.326371&#39;, &#39;2019-01-19
+16:25:43.326371&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:25:43.326371&#39;, &#39;2019-01-19
+16:25:43.326371&#39;)[0m</p>
+
+<pre>[1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 16:25:43.504833&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:25:43.504833&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.5ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 16:29:20.684698&#39;, &#39;2019-01-19
+16:29:20.684698&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+16:29:20.684698&#39;, &#39;2019-01-19 16:29:20.684698&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:29:20.690783&#39;, &#39;2019-01-19
+16:29:20.690783&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:29:20.690783&#39;, &#39;2019-01-19
+16:29:20.690783&#39;)[0m</p>
+
+<pre>[1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 16:29:20.739674&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:29:20.739674&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 14:29:20 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 16:29:20.917058&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:29:20.917058&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.5ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 16:38:53.414614&#39;, &#39;2019-01-19
+16:38:53.414614&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+16:38:53.414614&#39;, &#39;2019-01-19 16:38:53.414614&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:38:53.420047&#39;, &#39;2019-01-19
+16:38:53.420047&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:38:53.420047&#39;, &#39;2019-01-19
+16:38:53.420047&#39;)[0m</p>
+
+<pre>[1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 16:38:53.455632&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:38:53.455632&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 14:38:53 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 16:38:53.628421&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:38:53.628421&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 14:38:53 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 16:38:53.639435&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:38:53.639435&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.6ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (3.2ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 16:39:16.545127&#39;, &#39;2019-01-19
+16:39:16.545127&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+16:39:16.545127&#39;, &#39;2019-01-19 16:39:16.545127&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:39:16.552320&#39;, &#39;2019-01-19
+16:39:16.552320&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:39:16.552320&#39;, &#39;2019-01-19
+16:39:16.552320&#39;)[0m</p>
+
+<pre>[1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.2ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 14:39:16 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 16:39:16.715110&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:39:16.715110&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.6ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 14:39:16 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 16:39:16.726273&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:39:16.726273&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.2ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 16:39:16.730468&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:39:16.730468&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.5ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM &quot;carts&quot;;</pre>
+
+<p>DELETE FROM “products”; INSERT INTO “carts” (“id”, “title”, “total_amount”,
+“created_at”, “updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5,
+&#39;2019-01-19 16:40:02.028778&#39;, &#39;2019-01-19
+16:40:02.028778&#39;), (298486374, &#39;MyString&#39;, 1.5, &#39;2019-01-19
+16:40:02.028778&#39;, &#39;2019-01-19 16:40:02.028778&#39;); INSERT INTO
+“products” (“id”, “title”, “price”, “inventory_count”, “created_at”,
+“updated_at”) VALUES (980190962, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:40:02.037993&#39;, &#39;2019-01-19
+16:40:02.037993&#39;), (298486374, &#39;MyString&#39;, 1.5, 1,
+&#39;2019-01-19 16:40:02.037993&#39;, &#39;2019-01-19
+16:40:02.037993&#39;)[0m</p>
+
+<pre>[1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;carts&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;carts_products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;products&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;created_at&quot;, &quot;2019-01-19 16:40:02.070997&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:40:02.070997&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_create_cart</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 14:40:02 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 16:40:02.255621&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:40:02.255621&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM &quot;carts&quot;[0m
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</pre>
+<hr>
+
+<p>CartsControllerTest: test_should_get_cart_by_id</p>
+<hr>
+
+<pre>[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; WHERE &quot;carts&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 980190962], [&quot;LIMIT&quot;, 1]]
+[1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]</pre>
+
+<p>Started POST “/cart” for 127.0.0.1 at 2019-01-19 14:40:02 -0200 Processing
+by <a
+href="../CartsController.html#method-i-create">CartsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;title&quot;=&gt;&quot;Test Cart&quot;}
+[1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;carts&quot; (&quot;title&quot;, &quot;total_amount&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;id&quot;[0m  [[&quot;title&quot;, &quot;Test Cart&quot;], [&quot;total_amount&quot;, 0.0], [&quot;created_at&quot;, &quot;2019-01-19 16:40:02.264872&quot;], [&quot;updated_at&quot;, &quot;2019-01-19 16:40:02.264872&quot;]]
+[1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)</p>
+
+<pre>[1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  &quot;carts&quot;.* FROM &quot;carts&quot; ORDER BY &quot;carts&quot;.&quot;id&quot; DESC LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
