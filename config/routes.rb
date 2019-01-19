@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 	get  "/products" => "products#index"
 	get  "/productsInCart/:id" => "carts#productsInCart"
 	post "/checkout" => "carts#checkout"
-	post "/deleteProductFromChart" => "carts#deleteProductFromChart"
+	post "/deleteProductFromCart" => "carts#deleteProductFromCart"
 end

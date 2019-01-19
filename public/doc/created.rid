@@ -1,4 +1,4 @@
-Sat, 19 Jan 2019 16:15:19 -0200
+Sat, 19 Jan 2019 17:18:18 -0200
 ./app/assets/config/manifest.js	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/assets/javascripts/application.js	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/assets/javascripts/cable.js	Fri, 18 Jan 2019 20:06:14 -0200
@@ -6,8 +6,8 @@ Sat, 19 Jan 2019 16:15:19 -0200
 ./app/channels/application_cable/channel.rb	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/channels/application_cable/connection.rb	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/controllers/application_controller.rb	Fri, 18 Jan 2019 20:48:24 -0200
-./app/controllers/carts_controller.rb	Sat, 19 Jan 2019 15:30:29 -0200
-./app/controllers/products_controller.rb	Sat, 19 Jan 2019 16:15:11 -0200
+./app/controllers/carts_controller.rb	Sat, 19 Jan 2019 17:13:40 -0200
+./app/controllers/products_controller.rb	Sat, 19 Jan 2019 16:55:02 -0200
 ./app/helpers/application_helper.rb	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/helpers/carts_helper.rb	Fri, 18 Jan 2019 20:25:29 -0200
 ./app/helpers/products_helper.rb	Fri, 18 Jan 2019 20:25:39 -0200
@@ -63,7 +63,7 @@ Sat, 19 Jan 2019 16:15:19 -0200
 ./config/locales/en.yml	Fri, 18 Jan 2019 20:06:14 -0200
 ./config/master.key	Fri, 18 Jan 2019 20:06:14 -0200
 ./config/puma.rb	Fri, 18 Jan 2019 20:06:14 -0200
-./config/routes.rb	Sat, 19 Jan 2019 15:54:36 -0200
+./config/routes.rb	Sat, 19 Jan 2019 17:11:18 -0200
 ./config/spring.rb	Fri, 18 Jan 2019 20:06:14 -0200
 ./config/storage.yml	Fri, 18 Jan 2019 20:06:14 -0200
 ./config.ru	Fri, 18 Jan 2019 20:06:14 -0200
@@ -78,13 +78,6 @@ Sat, 19 Jan 2019 16:15:19 -0200
 ./log/development.log	Sat, 19 Jan 2019 15:11:49 -0200
 ./log/test.log	Sat, 19 Jan 2019 16:04:49 -0200
 ./package.json	Fri, 18 Jan 2019 20:06:14 -0200
-./public/404.html	Fri, 18 Jan 2019 20:06:14 -0200
-./public/422.html	Fri, 18 Jan 2019 20:06:14 -0200
-./public/500.html	Fri, 18 Jan 2019 20:06:14 -0200
-./public/apple-touch-icon-precomposed.png	Fri, 18 Jan 2019 20:06:14 -0200
-./public/apple-touch-icon.png	Fri, 18 Jan 2019 20:06:14 -0200
-./public/favicon.ico	Fri, 18 Jan 2019 20:06:14 -0200
-./public/robots.txt	Fri, 18 Jan 2019 20:06:14 -0200
 ./Rakefile	Fri, 18 Jan 2019 20:06:14 -0200
 ./README.md	Fri, 18 Jan 2019 20:06:14 -0200
 ./test/application_system_test_case.rb	Fri, 18 Jan 2019 20:06:14 -0200
@@ -550,7 +543,7 @@ Sat, 19 Jan 2019 16:15:19 -0200
 ./tmp/cache/bootsnap-compile-cache/34/c631a3b8e078cb	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/34/e209998fae562a	Fri, 18 Jan 2019 20:20:15 -0200
 ./tmp/cache/bootsnap-compile-cache/34/fbb58b8079574b	Fri, 18 Jan 2019 20:20:16 -0200
-./tmp/cache/bootsnap-compile-cache/35/0218acb8c74e06	Sat, 19 Jan 2019 15:54:37 -0200
+./tmp/cache/bootsnap-compile-cache/35/0218acb8c74e06	Sat, 19 Jan 2019 17:11:20 -0200
 ./tmp/cache/bootsnap-compile-cache/35/053ec184f0e3df	Fri, 18 Jan 2019 20:20:15 -0200
 ./tmp/cache/bootsnap-compile-cache/35/1801a4e23e3885	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/35/41ee51971f5be0	Sat, 19 Jan 2019 14:07:39 -0200

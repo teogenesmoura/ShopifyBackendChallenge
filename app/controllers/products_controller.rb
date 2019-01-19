@@ -1,16 +1,19 @@
 class ProductsController < ApplicationController
-  # GET /products
+  # Lists all products in the database 
+  # * *Returns* :
+  #   - +Product+ -> JSON Object - Product array in JSON format if cart is created, else renders an error message
   def index
     @products = Product.all
     render json: @products
   end
 
-  # POST /product
   # Creates a new product and returns a JSON that represents it 
-  # @params String title The title for the new product 
-  # @params Float price The price for the new product
-  # @params Integer inventory_count The amount of units available in stock for the item 
-  # @return Product in JSON format if cart is create, else renders an error message
+  # * *Params* :
+  #   - +title+ -> _String_ - The title for the new product 
+  #   - +price+ -> _Float_ - price The price of the new product
+  #   - +inventory_count+ -> _Integer_ - The amount of units available in stock for the item 
+  # * *Returns* :
+  #   - +Product+ -> JSON Object - Product in JSON format if cart is created, else renders an error message
   def create
     if not params[:title] or not params[:price] or not params[:inventory_count]
       render json: '{ "message": "A required field is missing"}'
@@ -27,11 +30,13 @@ class ProductsController < ApplicationController
     end 
   end
 
-  # DELETE /product
   # Deletes a product from the database given it's id 
-  # @params Integer id The id of the product which will be destroyed
-  # @returns String message Returns a message informing wether the operation was successful
-  # or not 
+  # ==== Attributes
+  # * *Params* :
+  #   - +id+ -> _Integer_ - The id of the product which will be destroyed
+  # * *Returns* :
+  #   - +message+ -> _String_ - message Returns a message informing wether the operation was successful
+  #   or not 
   def destroy 
     if not params[:id]
       render json: ' { "message": "Field productId is missing" } '

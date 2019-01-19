@@ -1,16 +1,17 @@
 # This class handles logic for Carts in our application 
 class CartsController < ApplicationController
-  # GET /carts
-  # Returns a list of all carts in the database
-  # @return [Carts] in JSON format or [] if Cart.count == 0
+
+  # Lists all products in the database 
+  # * *Returns* :
+  #   - +Product+ -> JSON Object - list of all carts in the database or [] if Cart.count == 0
   def index
     @carts = Cart.all
     render json: @carts
   end
 
-  # GET /cart/:id
   # Returns a cart given an id 
-  # @return Cart in JSON format if id is found, else renders an error message
+  # * *Returns* :
+  #   - +Cart+ -> JSON Object if id is found, else renders an error message
   def getCartById 
     id = params[:id]
     cart = Cart.find(id)
@@ -21,10 +22,11 @@ class CartsController < ApplicationController
     end
   end 
 
-  # POST /cart
   # Creates a new cart and returns a JSON that represents it 
-  # @params [String] title The title for the new cart 
-  # @return Cart in JSON format if cart is create, else renders an error message
+  # * *Params* :
+  #   - +title+ -> _String_ -  The title for the new cart 
+  # * *Returns* :
+  #   - +Cart+ -> _Cart_ _array_ - JSON object if cart is created, else renders an error message
   def create
     if not params[:title]
       render json: '{ "message": "A required field is missing"}'
@@ -40,16 +42,16 @@ class CartsController < ApplicationController
     end 
   end
 
-  # POST /checkout
   # Lets user finalize his or her buying process. It receives a cart id and handles 
   # inventory, subtracting 1 of each available product. It doesn't need to worry about
   # price because we already process the total amount during the purchase process. Cart's 
   # total_amount field goes to zero after checkout is succesful.
-  # @params Integer cartId Id of the cart that is checking out 
-  # @return JSON object containing the cart updated with new values after checkout, as
+  # * *Params* :
+  #   - +cartId+ -> _Integer_ - Id of the cart that is checking out 
+  # * *Returns* :
+  #   - +Object+ -> JSON object containing the cart updated with new values after checkout, as
   # well as a field with the amount charged from the client.
   # Example return value:
-  # {
   #   "cart": {
   #       "id": 1,
   #       "title": "Harry's cart",
@@ -58,7 +60,6 @@ class CartsController < ApplicationController
   #       "updated_at": "2019-01-19T17:11:15.006Z"
   #   },
   #   "amount_charged": 2
-  # }
   def checkout
     if not params[:cartId]
       render json: '{ "message": "In order to checkout you need to inform the id of the Cart" }' 
@@ -84,13 +85,14 @@ class CartsController < ApplicationController
     end
   end 
 
-  # POST /deleteProductFromChart
   # Deletes a product from a cart
-  # @params Integer cartId id of the cart requested
-  # @params Integer productId id of the product to be removed 
-  # @return Cart with updated Cart.products status, or error message if something 
+  # * *Params* :
+  #   - +cartId+ -> _Integer_ - Id of the cart requested
+  #   - +id+ -> _Integer_ - The id of the product which will be removed from the cart
+  # * *Returns* :
+  #   - +Object+ -> _Cart_ - JSON object with updated Cart.products status, or error message if something 
   # goes wrong 
-  def deleteProductFromChart
+  def deleteProductFromCart
     if not params[:cartId] or not params[:productId]
       render json: '{ "message": "You need to inform both the cart id and the product id" }'
       return 
@@ -118,11 +120,12 @@ class CartsController < ApplicationController
     end
   end
 
-  # POST /addProductToCart
   # Adds a Product to a Cart instance
-  # @params Integer cartId id of the cart requested
-  # @params Integer productId id of the product to be removed 
-  # @returns [Products] JSON with a listing of all products in the cart, including the new one
+  # * *Params* :
+  #   - +cartId+ -> _Integer_ - Id of the cart requested
+  #   - +id+ -> _Integer_ - The id of the product which will be removed from the cart
+  # * *Returns* :
+  #   - +Object+ -> _Products_ _array_ - JSON with a listing of all products in the cart, including the new one
   def addProductToCart 
     if not params[:cartId] or not params[:productId]
       render json: '{ "message": "You need to inform both the cart id and the product id" }'
@@ -146,10 +149,11 @@ class CartsController < ApplicationController
     end 
   end
 
-  # GET /productsInCart
   # Gives a listing of all products in a cart 
-  # @params Integer cartId id of the cart requested
-  # @returns [Product] a listing of all products included in the cart requested or 
+  # * *Params* :
+  #   - +cartId+ -> _Integer_ - Id of the cart requested
+  # * *Returns* :
+  #   - +Object+ -> _Product_ _array_ - A listing of all products included in the cart requested or 
   # error if cart id is not found 
   def productsInCart 
     if not params[:cartId]

@@ -77,7 +77,7 @@
     
     <li ><a href="#method-i-create">#create</a>
     
-    <li ><a href="#method-i-deleteProductFromChart">#deleteProductFromChart</a>
+    <li ><a href="#method-i-deleteProductFromCart">#deleteProductFromCart</a>
     
     <li ><a href="#method-i-getCartById">#getCartById</a>
     
@@ -132,17 +132,29 @@
 
         <div class="method-description">
           
-          <p>POST /addProductToCart Adds a <a href="Product.html">Product</a> to a <a
-href="Cart.html">Cart</a> instance @params Integer cartId id of the cart
-requested @params Integer productId id of the product to be removed 
-@returns [Products] JSON with a listing of all products in the cart,
-including the new one</p>
+          <p>Adds a <a href="Product.html">Product</a> to a <a href="Cart.html">Cart</a>
+instance</p>
+<ul><li>
+<p><strong>Params</strong> :</p>
+<ul><li>
+<p><code>cartId</code> -&gt; <em>Integer</em> - Id of the cart requested</p>
+</li><li>
+<p><code>id</code> -&gt; <em>Integer</em> - The id of the product which will
+be removed from the cart</p>
+</li></ul>
+</li><li>
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><code>Object</code> -&gt; <em>Products</em> <em>array</em> - JSON with a
+listing of all products in the cart, including the new one</p>
+</li></ul>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="addProductToCart-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 126</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 129</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">addProductToCart</span> 
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:productId</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;You need to inform both the cart id and the product id&quot; }&#39;</span>
@@ -188,14 +200,27 @@ including the new one</p>
 
         <div class="method-description">
           
-          <p>POST /checkout Lets user finalize his or her buying process. It receives a
-cart id and handles  inventory, subtracting 1 of each available product. It
-doesn&#39;t need to worry about price because we already process the total
-amount during the purchase process. Cart&#39;s  total_amount field goes to
-zero after checkout is succesful. @params Integer cartId Id of the cart
-that is checking out  @return JSON object containing the cart updated with
-new values after checkout, as well as a field with the amount charged from
-the client. Example return value: {</p>
+          <p>Lets user finalize his or her buying process. It receives a cart id and
+handles  inventory, subtracting 1 of each available product. It doesn&#39;t
+need to worry about price because we already process the total amount
+during the purchase process. Cart&#39;s  total_amount field goes to zero
+after checkout is succesful.</p>
+<ul><li>
+<p><strong>Params</strong> :</p>
+<ul><li>
+<p><code>cartId</code> -&gt; <em>Integer</em> - Id of the cart that is
+checking out</p>
+</li></ul>
+</li><li>
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><code>Object</code> -&gt; JSON object containing the cart updated with new
+values after checkout, as</p>
+</li></ul>
+</li></ul>
+
+<p>well as a field with the amount charged from the client. Example return
+value:</p>
 
 <pre>&quot;cart&quot;: {
     &quot;id&quot;: 1,
@@ -205,14 +230,12 @@ the client. Example return value: {</p>
     &quot;updated_at&quot;: &quot;2019-01-19T17:11:15.006Z&quot;
 },
 &quot;amount_charged&quot;: 2</pre>
-
-<p>}</p>
           
           
 
           
           <div class="method-source-code" id="checkout-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 62</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">checkout</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;In order to checkout you need to inform the id of the Cart&quot; }&#39;</span> 
@@ -260,16 +283,25 @@ the client. Example return value: {</p>
 
         <div class="method-description">
           
-          <p>POST /cart Creates a new cart and returns a JSON that represents it 
-@params [String] title The title for the new cart  @return <a
-href="Cart.html">Cart</a> in JSON format if cart is create, else renders an
-error message</p>
+          <p>Creates a new cart and returns a JSON that represents it</p>
+<ul><li>
+<p><strong>Params</strong> :</p>
+<ul><li>
+<p><code>title</code> -&gt; <em>String</em> -  The title for the new cart</p>
+</li></ul>
+</li><li>
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><code>Cart</code> -&gt; <em>Cart</em> <em>array</em> - JSON object if cart
+is created, else renders an error message</p>
+</li></ul>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;A required field is missing&quot;}&#39;</span>
@@ -294,10 +326,10 @@ error message</p>
       </div>
 
     
-      <div id="method-i-deleteProductFromChart" class="method-detail ">
+      <div id="method-i-deleteProductFromCart" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">deleteProductFromChart</span><span
+          <span class="method-name">deleteProductFromCart</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -307,17 +339,31 @@ error message</p>
 
         <div class="method-description">
           
-          <p>POST /deleteProductFromChart Deletes a product from a cart @params Integer
-cartId id of the cart requested @params Integer productId id of the product
-to be removed  @return <a href="Cart.html">Cart</a> with updated
-Cart.products status, or error message if something  goes wrong</p>
+          <p>Deletes a product from a cart</p>
+<ul><li>
+<p><strong>Params</strong> :</p>
+<ul><li>
+<p><code>cartId</code> -&gt; <em>Integer</em> - Id of the cart requested</p>
+</li><li>
+<p><code>id</code> -&gt; <em>Integer</em> - The id of the product which will
+be removed from the cart</p>
+</li></ul>
+</li><li>
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><code>Object</code> -&gt; <em>Cart</em> - JSON object with updated
+Cart.products status, or error message if something</p>
+</li></ul>
+</li></ul>
+
+<p>goes wrong</p>
           
           
 
           
-          <div class="method-source-code" id="deleteProductFromChart-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 93</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteProductFromChart</span>
+          <div class="method-source-code" id="deleteProductFromCart-source">
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deleteProductFromCart</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:productId</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;You need to inform both the cart id and the product id&quot; }&#39;</span>
     <span class="ruby-keyword">return</span> 
@@ -367,15 +413,20 @@ Cart.products status, or error message if something  goes wrong</p>
 
         <div class="method-description">
           
-          <p>GET /cart/:id Returns a cart given an id  @return <a
-href="Cart.html">Cart</a> in JSON format if id is found, else renders an
-error message</p>
+          <p>Returns a cart given an id</p>
+<ul><li>
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><code>Cart</code> -&gt; JSON <a href="Object.html">Object</a> if id is
+found, else renders an error message</p>
+</li></ul>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="getCartById-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getCartById</span> 
   <span class="ruby-identifier">id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
   <span class="ruby-identifier">cart</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>)
@@ -408,14 +459,20 @@ error message</p>
 
         <div class="method-description">
           
-          <p>GET /carts Returns a list of all carts in the database @return [Carts] in
-JSON format or [] if Cart.count == 0</p>
+          <p>Lists all products in the database</p>
+<ul><li>
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><code>Product</code> -&gt; JSON <a href="Object.html">Object</a> - list of
+all carts in the database or [] if Cart.count == 0</p>
+</li></ul>
+</li></ul>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@carts</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@carts</span>
@@ -443,15 +500,27 @@ JSON format or [] if Cart.count == 0</p>
 
         <div class="method-description">
           
-          <p>GET /productsInCart Gives a listing of all products in a cart  @params
-Integer cartId id of the cart requested @returns [Product] a listing of all
-products included in the cart requested or  error if cart id is not found</p>
+          <p>Gives a listing of all products in a cart</p>
+<ul><li>
+<p><strong>Params</strong> :</p>
+<ul><li>
+<p><code>cartId</code> -&gt; <em>Integer</em> - Id of the cart requested</p>
+</li></ul>
+</li><li>
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><code>Object</code> -&gt; <em>Product</em> <em>array</em> - A listing of
+all products included in the cart requested or</p>
+</li></ul>
+</li></ul>
+
+<p>error if cart id is not found</p>
           
           
 
           
           <div class="method-source-code" id="productsInCart-source">
-            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 154</span>
+            <pre><span class="ruby-comment"># File app/controllers/carts_controller.rb, line 158</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">productsInCart</span> 
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:cartId</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;Please inform the id of the cart&quot;}&#39;</span>
