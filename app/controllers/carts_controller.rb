@@ -8,6 +8,17 @@ class CartsController < ApplicationController
     render json: @carts
   end
 
+  # GET /cart
+  def getCartById 
+    id = params[:id]
+    cart = Cart.find(id)
+    if cart == nil 
+      render json: '{ "message": "Cart not found"}'
+    else 
+      render json: cart
+    end
+  end 
+
   # POST /carts
   def create
     if not params[:title]
