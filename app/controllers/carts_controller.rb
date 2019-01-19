@@ -172,11 +172,11 @@ class CartsController < ApplicationController
   #   or not 
   def destroy 
     if not params[:id]
-      render json: ' { "message": "Field productId is missing" } '
+      render json: ' { "message": "Field cartId is missing" } '
     else 
       cart = Cart.find(params[:id])
       if cart.destroy 
-        render json:  ' { "message": "Product successfully deleted"}'
+        render json:  ' { "message": "Cart successfully deleted"}'
       else 
         render json:  '{ "message": "There was a problem with your request" }'
       end 
