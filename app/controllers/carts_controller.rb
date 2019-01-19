@@ -1,6 +1,5 @@
 class CartsController < ApplicationController
   # before_action :set_cart, only: [:show, :edit, :update, :destroy]
-
   # GET /carts
   # GET /carts.json
   def index
@@ -61,6 +60,37 @@ class CartsController < ApplicationController
     end
   end 
 
+  #POST /deleteProductFromChart
+  def deleteProductFromChart
+    if not params[:cartId] or not params[:productId]
+      render json: '{ "message": "You need to inform both the cart id and the product id" }'
+      return 
+    else 
+      cart = Cart.find(params[:cartId])
+      product = Product.find(params[:productId])
+      if not cart 
+        render json: '{ "message": "Cart not found" } '
+        return 
+      end
+      if not product  
+        render json: '{ "message": "Product not found" }'
+        return 
+      end 
+      for prod in cart.products 
+        puts prod.id
+        puts "params prod id " + params[:productId]
+        if prod.id == params[:productId].to_i
+          cart.total_amount -= prod.price 
+          cart.products.delete(prod)
+          cart.save
+          render json: cart 
+          return 
+        end
+      end 
+      render json: '{ "message": "Product not found in cart" }' 
+    end
+  end
+
   # POST /addProductToCart
   def addProductToCart 
     if not params[:cartId] or not params[:productId]
@@ -84,40 +114,4 @@ class CartsController < ApplicationController
       end 
     end 
   end
-
-
-  # # PATCH/PUT /carts/1
-  # # PATCH/PUT /carts/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @cart.update(cart_params)
-  #       format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @cart }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @cart.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # # DELETE /carts/1
-  # # DELETE /carts/1.json
-  # def destroy
-  #   @cart.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
-
-  # private
-  #   # Use callbacks to share common setup or constraints between actions.
-  #   def set_cart
-  #     @cart = Cart.find(params[:id])
-  #   end
-
-  #   # Never trust parameters from the scary internet, only allow the white list through.
-  #   def cart_params
-  #     params.fetch(:cart, {})
-  #   end
 end

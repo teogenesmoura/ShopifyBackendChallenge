@@ -7,20 +7,6 @@ class ProductsController < ApplicationController
     render json: @products
   end
 
-  # GET /products/1
-  # GET /products/1.json
-  def show
-  end
-
-  # GET /products/new
-  def new
-    @product = Product.new
-  end
-
-  # GET /products/1/edit
-  def edit
-  end
-
   # POST /products
   # POST /products.json
   def create
