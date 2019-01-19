@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 	get  "/carts" => "carts#index"
 	get  "/cart/:id" => "carts#getCartById"
 	post "/addProductToCart" => "carts#addProductToCart"
+	post "/product" => "products#create"
 	get  "/products" => "products#index"
 	get  "/productsInCart/:id" => "carts#productsInCart"
 	post "/checkout" => "carts#checkout"
