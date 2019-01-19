@@ -73,6 +73,8 @@
     
     <li ><a href="#method-i-create">#create</a>
     
+    <li ><a href="#method-i-destroy">#destroy</a>
+    
     <li ><a href="#method-i-index">#index</a>
     
   </ul>
@@ -120,13 +122,18 @@
 
         <div class="method-description">
           
-          <p>POST /product</p>
+          <p>POST /product Creates a new product and returns a JSON that represents it 
+@params String title The title for the new product  @params Float price The
+price for the new product @params Integer inventory_count The amount of
+units available in stock for the item  @return <a
+href="Product.html">Product</a> in JSON format if cart is create, else
+renders an error message</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 11</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:price</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:inventory_count</span>]
     <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;A required field is missing&quot;}&#39;</span>
@@ -139,6 +146,51 @@
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-identifier">product</span>
     <span class="ruby-keyword">else</span> 
       <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&quot;An error has ocurred&quot;</span>
+    <span class="ruby-keyword">end</span> 
+  <span class="ruby-keyword">end</span> 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>DELETE /product Deletes a product from the database given it&#39;s id 
+@params Integer id The id of the product which will be destroyed @returns
+String message Returns a message informing wether the operation was
+successful or not</p>
+          
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span> 
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+    <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-string">&#39; { &quot;message&quot;: &quot;Field productId is missing&quot; } &#39;</span>
+  <span class="ruby-keyword">else</span> 
+    <span class="ruby-identifier">product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">product</span>.<span class="ruby-identifier">destroy</span> 
+      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>  <span class="ruby-string">&#39; { &quot;message&quot;: &quot;Product successfully deleted&quot;}&#39;</span>
+    <span class="ruby-keyword">else</span> 
+      <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>  <span class="ruby-string">&#39;{ &quot;message&quot;: &quot;There was a problem with your request&quot; }&#39;</span>
     <span class="ruby-keyword">end</span> 
   <span class="ruby-keyword">end</span> 
 <span class="ruby-keyword">end</span></pre>
@@ -171,7 +223,7 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/products_controller.rb, line 3</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@products</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span> <span class="ruby-ivar">@products</span>

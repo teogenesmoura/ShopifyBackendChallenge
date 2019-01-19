@@ -1,4 +1,4 @@
-Sat, 19 Jan 2019 15:32:08 -0200
+Sat, 19 Jan 2019 16:15:19 -0200
 ./app/assets/config/manifest.js	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/assets/javascripts/application.js	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/assets/javascripts/cable.js	Fri, 18 Jan 2019 20:06:14 -0200
@@ -7,7 +7,7 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./app/channels/application_cable/connection.rb	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/controllers/application_controller.rb	Fri, 18 Jan 2019 20:48:24 -0200
 ./app/controllers/carts_controller.rb	Sat, 19 Jan 2019 15:30:29 -0200
-./app/controllers/products_controller.rb	Sat, 19 Jan 2019 14:02:53 -0200
+./app/controllers/products_controller.rb	Sat, 19 Jan 2019 16:15:11 -0200
 ./app/helpers/application_helper.rb	Fri, 18 Jan 2019 20:06:14 -0200
 ./app/helpers/carts_helper.rb	Fri, 18 Jan 2019 20:25:29 -0200
 ./app/helpers/products_helper.rb	Fri, 18 Jan 2019 20:25:39 -0200
@@ -63,7 +63,7 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./config/locales/en.yml	Fri, 18 Jan 2019 20:06:14 -0200
 ./config/master.key	Fri, 18 Jan 2019 20:06:14 -0200
 ./config/puma.rb	Fri, 18 Jan 2019 20:06:14 -0200
-./config/routes.rb	Sat, 19 Jan 2019 13:59:52 -0200
+./config/routes.rb	Sat, 19 Jan 2019 15:54:36 -0200
 ./config/spring.rb	Fri, 18 Jan 2019 20:06:14 -0200
 ./config/storage.yml	Fri, 18 Jan 2019 20:06:14 -0200
 ./config.ru	Fri, 18 Jan 2019 20:06:14 -0200
@@ -76,7 +76,7 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./Gemfile	Sat, 19 Jan 2019 13:17:40 -0200
 ./Gemfile.lock	Sat, 19 Jan 2019 13:17:57 -0200
 ./log/development.log	Sat, 19 Jan 2019 15:11:49 -0200
-./log/test.log	Sat, 19 Jan 2019 14:40:08 -0200
+./log/test.log	Sat, 19 Jan 2019 16:04:49 -0200
 ./package.json	Fri, 18 Jan 2019 20:06:14 -0200
 ./public/404.html	Fri, 18 Jan 2019 20:06:14 -0200
 ./public/422.html	Fri, 18 Jan 2019 20:06:14 -0200
@@ -89,7 +89,7 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./README.md	Fri, 18 Jan 2019 20:06:14 -0200
 ./test/application_system_test_case.rb	Fri, 18 Jan 2019 20:06:14 -0200
 ./test/controllers/carts_controller_test.rb	Sat, 19 Jan 2019 14:39:14 -0200
-./test/controllers/products_controller_test.rb	Sat, 19 Jan 2019 14:08:11 -0200
+./test/controllers/products_controller_test.rb	Sat, 19 Jan 2019 16:04:24 -0200
 ./test/fixtures/carts.yml	Fri, 18 Jan 2019 20:20:17 -0200
 ./test/fixtures/products.yml	Fri, 18 Jan 2019 20:20:36 -0200
 ./test/models/cart_test.rb	Sat, 19 Jan 2019 14:27:07 -0200
@@ -420,7 +420,7 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./tmp/cache/bootsnap-compile-cache/25/c51b6bed7dc6fd	Sat, 19 Jan 2019 14:07:40 -0200
 ./tmp/cache/bootsnap-compile-cache/26/0c1d49888e4ce9	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/26/237c0085f6f2a5	Sat, 19 Jan 2019 14:07:40 -0200
-./tmp/cache/bootsnap-compile-cache/26/3f1b1cf9b1789d	Sat, 19 Jan 2019 15:10:21 -0200
+./tmp/cache/bootsnap-compile-cache/26/3f1b1cf9b1789d	Sat, 19 Jan 2019 15:43:32 -0200
 ./tmp/cache/bootsnap-compile-cache/26/59b940251b0686	Fri, 18 Jan 2019 20:20:17 -0200
 ./tmp/cache/bootsnap-compile-cache/26/67be4161967712	Fri, 18 Jan 2019 20:20:15 -0200
 ./tmp/cache/bootsnap-compile-cache/26/7777644539909c	Fri, 18 Jan 2019 20:20:17 -0200
@@ -550,7 +550,7 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./tmp/cache/bootsnap-compile-cache/34/c631a3b8e078cb	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/34/e209998fae562a	Fri, 18 Jan 2019 20:20:15 -0200
 ./tmp/cache/bootsnap-compile-cache/34/fbb58b8079574b	Fri, 18 Jan 2019 20:20:16 -0200
-./tmp/cache/bootsnap-compile-cache/35/0218acb8c74e06	Sat, 19 Jan 2019 14:00:25 -0200
+./tmp/cache/bootsnap-compile-cache/35/0218acb8c74e06	Sat, 19 Jan 2019 15:54:37 -0200
 ./tmp/cache/bootsnap-compile-cache/35/053ec184f0e3df	Fri, 18 Jan 2019 20:20:15 -0200
 ./tmp/cache/bootsnap-compile-cache/35/1801a4e23e3885	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/35/41ee51971f5be0	Sat, 19 Jan 2019 14:07:39 -0200
@@ -817,7 +817,7 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./tmp/cache/bootsnap-compile-cache/55/fea66965567b25	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/56/0ba29f576c53ee	Fri, 18 Jan 2019 20:20:17 -0200
 ./tmp/cache/bootsnap-compile-cache/56/1a04ee5c101902	Sat, 19 Jan 2019 14:07:39 -0200
-./tmp/cache/bootsnap-compile-cache/56/5af41c5fb5298a	Sat, 19 Jan 2019 14:25:21 -0200
+./tmp/cache/bootsnap-compile-cache/56/5af41c5fb5298a	Sat, 19 Jan 2019 16:04:27 -0200
 ./tmp/cache/bootsnap-compile-cache/56/5e0e63e33dd083	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/56/89c8ccf1396634	Sat, 19 Jan 2019 13:27:02 -0200
 ./tmp/cache/bootsnap-compile-cache/56/8d620c55950abe	Fri, 18 Jan 2019 20:26:47 -0200
@@ -918,7 +918,7 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./tmp/cache/bootsnap-compile-cache/61/df5ae3f7f12e63	Sat, 19 Jan 2019 14:07:39 -0200
 ./tmp/cache/bootsnap-compile-cache/61/fa35ce3daa0d7a	Sat, 19 Jan 2019 14:07:39 -0200
 ./tmp/cache/bootsnap-compile-cache/62/197272c55773ac	Fri, 18 Jan 2019 20:26:48 -0200
-./tmp/cache/bootsnap-compile-cache/62/2398326c1535a0	Sat, 19 Jan 2019 14:02:57 -0200
+./tmp/cache/bootsnap-compile-cache/62/2398326c1535a0	Sat, 19 Jan 2019 15:55:33 -0200
 ./tmp/cache/bootsnap-compile-cache/62/42f09359467f2c	Sat, 19 Jan 2019 14:07:39 -0200
 ./tmp/cache/bootsnap-compile-cache/62/4a0765765e545d	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/62/62819ee2b23855	Fri, 18 Jan 2019 20:20:16 -0200
@@ -2188,6 +2188,6 @@ Sat, 19 Jan 2019 15:32:08 -0200
 ./tmp/cache/bootsnap-compile-cache/ff/a2381ee2a0c1a3	Fri, 18 Jan 2019 20:20:16 -0200
 ./tmp/cache/bootsnap-compile-cache/ff/b060e28bb458e5	Fri, 18 Jan 2019 20:20:15 -0200
 ./tmp/cache/bootsnap-compile-cache/ff/e06df35e6863cd	Fri, 18 Jan 2019 20:21:44 -0200
-./tmp/cache/bootsnap-load-path-cache	Sat, 19 Jan 2019 14:40:01 -0200
+./tmp/cache/bootsnap-load-path-cache	Sat, 19 Jan 2019 15:50:52 -0200
 ./tmp/pids/server.pid	Sat, 19 Jan 2019 14:00:25 -0200
 ./tmp/restart.txt	Fri, 18 Jan 2019 20:26:43 -0200
